@@ -222,9 +222,7 @@ export function FuncionesSection({ funciones, colorSecundario, tituloFunciones, 
                               <span className="text-[13px] sm:text-sm font-medium">{z.nombre}</span>
                             </div>
                             <span className="text-[13px] sm:text-sm font-semibold tabular-nums">
-                              {moneda === "USD"
-                                ? `$${z.precioUSD.toFixed(2)}`
-                                : `Bs.${z.precioUSD}`}
+                              ${z.precioUSD.toFixed(2)}
                             </span>
                           </div>
                         ))}
