@@ -11,7 +11,7 @@ export function BannerSection({ banner, bannerMovil, titulo, logoLink }: Props) 
   const hasBoth = !!(banner && bannerMovil);
 
   return (
-    <section className="relative w-full">
+    <section className="relative w-full min-h-[400px] bg-gray-100 dark:bg-[#141414]">
       <a
         href={logoLink || "https://ticketmundo.com.ve/"}
         target="_blank"
@@ -23,6 +23,8 @@ export function BannerSection({ banner, bannerMovil, titulo, logoLink }: Props) 
         <img
           src="/images/ticketmundo-by-yummy.svg"
           alt="Ticketmundo by Yummy"
+          width={200}
+          height={32}
           className="w-[200px]"
         />
       </a>
@@ -33,6 +35,8 @@ export function BannerSection({ banner, bannerMovil, titulo, logoLink }: Props) 
         <img
           src={banner}
           alt={titulo}
+          fetchPriority="high"
+          loading="eager"
           className={`w-full h-auto block ${hasBoth ? "hidden min-[840px]:block" : ""}`}
         />
       )}
@@ -43,6 +47,8 @@ export function BannerSection({ banner, bannerMovil, titulo, logoLink }: Props) 
         <img
           src={bannerMovil}
           alt={titulo}
+          fetchPriority="high"
+          loading="eager"
           className={`w-full h-auto block ${hasBoth ? "min-[840px]:hidden" : ""}`}
         />
       )}

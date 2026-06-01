@@ -3,8 +3,9 @@ import "./globals.css";
 import { ToastProvider } from "@/components/providers/ToastProvider";
 
 export const metadata: Metadata = {
-  title: "Ticketmundo Admin",
-  description: "Admin de landing pages de eventos"
+  title: "Ticketmundo",
+  description: "Compra tus entradas para los mejores eventos en Venezuela con Ticketmundo.",
+  icons: { icon: "/icon.png" },
 };
 
 export default function RootLayout({

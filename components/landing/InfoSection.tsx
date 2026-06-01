@@ -8,7 +8,7 @@ export function InfoSection({ titulo, sinopsis }: Props) {
   return (
     <div className="rounded-card border border-gray-200 dark:border-white/10 bg-white dark:bg-[#1A1A1A] p-6">
       {titulo && (
-        <h2 className="text-xl sm:text-[22px] font-bold mb-3">{titulo}</h2>
+        <h1 className="text-xl sm:text-[22px] font-bold mb-3">{titulo}</h1>
       )}
       {sinopsis && (
         <div

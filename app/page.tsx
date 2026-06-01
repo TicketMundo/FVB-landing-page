@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { cache } from "react";
 import { readJson, configKey } from "@/lib/s3-client";
 import { DEFAULT_EVENTO_CONFIG, type EventoConfig } from "@/lib/types";
 import { sanitizeRichText } from "@/lib/sanitize";
@@ -16,7 +18,7 @@ import { FooterSection } from "@/components/landing/FooterSection";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
-async function loadEvento(): Promise<EventoConfig> {
+const loadEvento = cache(async (): Promise<EventoConfig> => {
   const id = process.env.DEFAULT_EVENTO_ID || "FIBA";
   try {
     const data = await readJson<EventoConfig>(configKey(id));
@@ -24,6 +26,36 @@ async function loadEvento(): Promise<EventoConfig> {
   } catch {
     return DEFAULT_EVENTO_CONFIG;
   }
+});
+
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, "").trim();
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const evento = await loadEvento();
+  const title = evento.titulo || "Ticketmundo";
+  const description = evento.sinopsis
+    ? stripHtml(evento.sinopsis).slice(0, 160)
+    : "Compra tus entradas para los mejores eventos en Venezuela con Ticketmundo.";
+  const image = evento.banner || evento.bannerMovil || "";
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      ...(image && { images: [{ url: image, width: 1200, height: 630, alt: title }] }),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      ...(image && { images: [image] }),
+    },
+  };
 }
 
 export default async function HomePage() {
@@ -40,10 +72,35 @@ export default async function HomePage() {
 
   const themeScript = `document.documentElement.className="${isDark ? "dark" : ""}"`;
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: evento.titulo,
+    description: evento.sinopsis ? stripHtml(evento.sinopsis).slice(0, 500) : undefined,
+    image: evento.banner || evento.bannerMovil || undefined,
+    organizer: {
+      "@type": "Organization",
+      name: "Ticketmundo",
+      url: "https://ticketmundo.com.ve",
+    },
+    ...(evento.funciones.length > 0 && {
+      startDate: evento.funciones[0].fecha,
+      location: {
+        "@type": "Place",
+        name: evento.funciones[0].venue,
+        address: { "@type": "PostalAddress", addressLocality: evento.funciones[0].ciudad },
+      },
+    }),
+  };
+
   return (
     <>
       {/* Sets <html> class before paint — prevents flash */}
       <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     <div className={isDark ? "dark" : ""}>
       <div className="min-h-screen bg-gray-50 dark:bg-[#0D0D0D] text-gray-900 dark:text-white">
         <BannerSection
