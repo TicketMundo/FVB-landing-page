@@ -229,11 +229,11 @@ export function FuncionesSection({ funciones, colorSecundario, tituloFunciones, 
                           </div>
                         ))}
                       </div>
-                      {f.incluyeCargos !== false && (
-                        <p className="text-[13px] sm:text-sm text-gray-400 dark:text-white/30 mt-3">
-                          Los precios incluyen cargos por servicio.
-                        </p>
-                      )}
+                      <p className="text-[13px] sm:text-sm text-gray-400 dark:text-white/30 mt-3">
+                        {f.incluyeCargos !== false
+                          ? "Los precios incluyen cargos por servicio."
+                          : "Los precios NO incluyen cargos por servicio."}
+                      </p>
                     </div>
                   )}
                 </div>
