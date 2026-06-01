@@ -147,7 +147,7 @@ export default async function HomePage() {
 
           {/* Funciones */}
           {evento.funciones.length > 0 && (
-            <FuncionesSection funciones={evento.funciones} colorSecundario={evento.colorSecundario} />
+            <FuncionesSection funciones={evento.funciones} colorSecundario={evento.colorSecundario} tituloFunciones={evento.tituloFunciones} ventaInicio={evento.ventaInicio} />
           )}
 
           {/* Galería + Spotify */}

@@ -68,6 +68,7 @@ export const eventoConfigSchema = z.object({
   logoLink: z.string().optional().default("/"),
   notas: z.array(z.string()).optional().default([]),
   tema: z.enum(["dark", "light"]).optional().default("dark"),
+  tituloFunciones: z.string().optional().default(""),
   funciones: z.array(funcionSchema).default([]),
   galeria: z.array(galeriaItemSchema).optional().default([]),
   productoras: z.array(productoraSchema).optional().default([]),

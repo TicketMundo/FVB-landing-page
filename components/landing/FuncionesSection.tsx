@@ -1,10 +1,12 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { Funcion } from "@/lib/types";
 
 interface Props {
   funciones: Funcion[];
   colorSecundario?: string;
+  tituloFunciones?: string;
+  ventaInicio?: string;
 }
 
 function formatHora(hora: string): string {
@@ -59,9 +61,25 @@ function TeamLogo({ src, nombre }: { src?: string; nombre?: string }) {
   );
 }
 
-export function FuncionesSection({ funciones, colorSecundario }: Props) {
+export function FuncionesSection({ funciones, colorSecundario, tituloFunciones, ventaInicio }: Props) {
   const [moneda, setMoneda] = useState<"USD" | "VEF">("VEF");
   const [openId, setOpenId] = useState<string | null>(null);
+  const [saleLocked, setSaleLocked] = useState(() =>
+    ventaInicio ? Date.now() < new Date(ventaInicio).getTime() : false
+  );
+
+  useEffect(() => {
+    if (!ventaInicio) return;
+    const target = new Date(ventaInicio).getTime();
+    if (Date.now() >= target) return;
+    const id = setInterval(() => {
+      if (Date.now() >= target) {
+        setSaleLocked(false);
+        clearInterval(id);
+      }
+    }, 1000);
+    return () => clearInterval(id);
+  }, [ventaInicio]);
 
   if (!funciones.length) return null;
 
@@ -69,7 +87,7 @@ export function FuncionesSection({ funciones, colorSecundario }: Props) {
     <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
       {/* Header row */}
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl sm:text-[22px] font-bold">Funciones</h2>
+        <h2 className="text-xl sm:text-[22px] font-bold">{tituloFunciones?.trim() || "Funciones"}</h2>
         <div className="flex items-center text-[13px] sm:text-sm overflow-hidden rounded-md border border-gray-200 dark:border-white/10">
           <button
             onClick={() => setMoneda("USD")}
@@ -144,19 +162,20 @@ export function FuncionesSection({ funciones, colorSecundario }: Props) {
                 <div className="shrink-0">
                   {(() => {
                     const link = moneda === "USD" ? f.linkCompra : f.linkCompraBS;
-                    return link ? (
+                    const disabled = saleLocked || !link;
+                    return disabled ? (
+                      <span className="inline-flex items-center justify-center px-4 py-2 rounded-input bg-gray-200 dark:bg-white/10 text-gray-400 dark:text-white/30 text-[13px] sm:text-sm font-bold uppercase tracking-wider cursor-not-allowed select-none">
+                        Tickets
+                      </span>
+                    ) : (
                       <a
-                        href={link}
+                        href={link!}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center justify-center px-4 py-2 rounded-input bg-brand text-white text-[13px] sm:text-sm font-bold hover:bg-brand-hover transition-colors uppercase tracking-wider"
                       >
                         Tickets
                       </a>
-                    ) : (
-                      <span className="inline-flex items-center justify-center px-4 py-2 rounded-input bg-brand/40 text-white/50 text-[13px] sm:text-sm font-bold uppercase tracking-wider cursor-not-allowed">
-                        Tickets
-                      </span>
                     );
                   })()}
                 </div>

@@ -63,6 +63,7 @@ export interface EventoConfig {
   logoLink?: string;
   notas?: string[];
   tema?: "dark" | "light";
+  tituloFunciones?: string;
   funciones: Funcion[];
   galeria?: GaleriaItem[];
   productoras?: Productora[];

@@ -55,8 +55,14 @@ export function FuncionesSection({ eventoId }: Props) {
 
   return (
     <section id="funciones" className="flex flex-col gap-4 scroll-mt-32">
+      <h2 className="text-lg font-semibold">Funciones</h2>
+      <Input
+        label='Título de sección (deja vacío para usar "Funciones")'
+        id="tituloFunciones"
+        placeholder="Ej: Partidos, Shows, Fechas..."
+        {...register("tituloFunciones")}
+      />
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-semibold">Funciones</h2>
         <Button type="button" variant="secondary" size="sm" onClick={addFuncion}>
           <Plus className="h-4 w-4" />
           Agregar función
