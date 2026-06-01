@@ -40,7 +40,7 @@ export function SponsorsSection({ eventoId }: Props) {
           type="button"
           variant="secondary"
           size="sm"
-          onClick={() => append({ nombre: "", logo: "" })}
+          onClick={() => append({ nombre: "", logo: "", link: "" })}
         >
           <Plus className="h-4 w-4" />
           Sponsor
