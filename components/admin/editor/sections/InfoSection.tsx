@@ -354,6 +354,13 @@ export function InfoSection({ eventoId }: Props) {
           </span>
         </div>
 
+        <Input
+          label='Texto del contador (deja vacío para usar el default)'
+          id="tituloCountdown"
+          placeholder="Ej: La venta inicia en..."
+          {...register("tituloCountdown")}
+        />
+
         {/* Link logo header */}
         <div className="flex flex-col gap-1">
           <label htmlFor="logoLink" className="text-sm font-medium flex items-center gap-1.5">

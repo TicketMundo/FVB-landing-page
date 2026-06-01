@@ -10,27 +10,16 @@ export function TerminosSection() {
           2. El poseedor del ticket se obliga a cumplir las normas de seguridad aplicables al evento o recinto.
         </p>
         <p>
-          3. Deberá canjear este boleto electrónico por ticket físicos a petición exclusiva del productor del evento si fuese necesario. En estos casos será notificado del debido proceso con antelación vía correo electrónico y/o nuestras redes sociales. Si el titular de la compra no puede retirar la(s) entrada(s) para asistir al evento, puede realizar una autorización a terceros para realizar el canje de la misma.{" "}
-          <a
-            href="https://cdn.ticketmundo.live/documentos/autorizacion-de-canje-ticketmundo.pdf"
-            target="_blank"
-            rel="noreferrer"
-            className="text-brand hover:underline break-all"
-          >
-            https://cdn.ticketmundo.live/documentos/autorizacion-de-canje-ticketmundo.pdf
-          </a>
+          3. Una vez realizada la compra de los boletos, los mismos no pueden ser cambiados, ni solicitar reembolso por la compra.
         </p>
         <p>
-          4. Una vez realizada la compra de los boletos, los mismos no pueden ser cambiados, ni solicitar reembolso por la compra.
+          4. El productor(es) y/o organizador(es) se reservan el derecho de admisión y permanencia en el recinto de cualquier persona que perturbe la experiencia del evento por un comportamiento que altere su normal desarrollo, al igual que comida, bebidas u otros artículos prohibidos por el productor.
         </p>
         <p>
-          5. El productor(es) y/o organizador(es) se reservan el derecho de admisión y permanencia en el recinto de cualquier persona que perturbe la experiencia del evento por un comportamiento que altere su normal desarrollo, al igual que comida, bebidas u otros artículos prohibidos por el productor.
+          5. En caso de cancelación del espectáculo, será responsabilidad de la empresa productora la correspondiente devolución del monto pagado por las entradas, dicho monto no incluirá las comisiones cobradas por TICKETMUNDO.
         </p>
         <p>
-          6. En caso de cancelación del espectáculo, será responsabilidad de la empresa productora la correspondiente devolución del monto pagado por las entradas, dicho monto no incluirá las comisiones cobradas por TICKETMUNDO.
-        </p>
-        <p>
-          7. En caso de compras con tarjetas internacionales, deberá enviar a través del correo de{" "}
+          6. En caso de compras con tarjetas internacionales, deberá enviar a través del correo de{" "}
           <a
             href="mailto:verificacion.compras@ticketmundo.com"
             className="text-brand hover:underline"
@@ -57,13 +46,13 @@ export function TerminosSection() {
           </a>
         </p>
         <p>
-          8. Si por razones de fuerza mayor, no imputable al recinto o teatro, el día del evento la función se suspende, habiendo sido en parte presentada, no se realizará devolución alguna del valor de la entrada.
+          7. Si por razones de fuerza mayor, no imputable al recinto o teatro, el día del evento la función se suspende, habiendo sido en parte presentada, no se realizará devolución alguna del valor de la entrada.
         </p>
-        <p>9. Menores de 18 años deben venir acompañados por un representante mayor de edad.</p>
-        <p>10. No se admite el ingreso de niños menores a 3 años.</p>
-        <p>11. Todo niño a partir de 3 años debe adquirir ticket para ingresar al evento.</p>
+        <p>8. Menores de 18 años deben venir acompañados por un representante mayor de edad.</p>
+        <p>9. No se admite el ingreso de niños menores a 3 años.</p>
+        <p>10. Todo niño a partir de 3 años debe adquirir ticket para ingresar al evento.</p>
         <p>
-          12. Las compras en la Web podrán requerir canje por ticket físico según solicitud de la producción. TICKETMUNDO notificará la fecha de canje y lugares.
+          11. Las compras en la Web podrán requerir canje por ticket físico según solicitud de la producción. TICKETMUNDO notificará la fecha de canje y lugares.
         </p>
       </div>
     </div>

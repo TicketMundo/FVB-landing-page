@@ -33,8 +33,14 @@ export function ProductorasSection({ eventoId }: Props) {
 
   return (
     <section id="productoras" className="flex flex-col gap-4 scroll-mt-32">
-      <div className="flex items-center justify-between">
-        <h2 className="text-lg font-semibold">Productoras</h2>
+      <h2 className="text-lg font-semibold">Productoras</h2>
+      <Input
+        label='Título de sección (deja vacío para usar "Organiza")'
+        id="tituloProductoras"
+        placeholder="Ej: Organiza, Producción, Presentado por..."
+        {...register("tituloProductoras")}
+      />
+      <div className="flex items-center justify-end">
         <Button
           type="button"
           variant="secondary"

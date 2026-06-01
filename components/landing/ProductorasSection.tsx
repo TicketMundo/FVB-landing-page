@@ -4,14 +4,15 @@ import type { Productora } from "@/lib/types";
 
 interface Props {
   productoras: Productora[];
+  titulo?: string;
 }
 
-export function ProductorasSection({ productoras }: Props) {
+export function ProductorasSection({ productoras, titulo }: Props) {
   if (!productoras.length) return null;
 
   return (
     <div className="rounded-card border border-gray-200 dark:border-white/10 bg-white dark:bg-[#1A1A1A] p-6 h-full">
-      <h2 className="text-xl sm:text-[22px] font-bold mb-6">Produce</h2>
+      <h2 className="text-xl sm:text-[22px] font-bold mb-6">{titulo?.trim() || "Organiza"}</h2>
       <div className="flex flex-col gap-6">
         {productoras.map((p, i) => {
           const igHandle = p.instagram?.replace("@", "");

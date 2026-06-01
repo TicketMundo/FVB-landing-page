@@ -110,7 +110,7 @@ export default async function HomePage() {
           logoLink={evento.logoLink}
         />
 
-        <CountdownSection ventaInicio={evento.ventaInicio} colorSecundario={evento.colorSecundario} />
+        <CountdownSection ventaInicio={evento.ventaInicio} colorSecundario={evento.colorSecundario} tituloCountdown={evento.tituloCountdown} />
 
         <main className="py-8 space-y-8">
           {/* Info + Notas — layout depends on imagenIntro presence */}
@@ -180,7 +180,7 @@ export default async function HomePage() {
             {hasProductoras ? (
               <div className="grid lg:grid-cols-5 gap-6">
                 <div className="lg:col-span-2">
-                  <ProductorasSection productoras={evento.productoras!} />
+                  <ProductorasSection productoras={evento.productoras!} titulo={evento.tituloProductoras} />
                 </div>
                 <div className="lg:col-span-3">
                   <TerminosSection />

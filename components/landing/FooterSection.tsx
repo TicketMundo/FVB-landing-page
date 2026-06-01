@@ -37,13 +37,13 @@ export function FooterSection() {
               TikTok
             </a>
           </div>
-          <span className="text-gray-300 dark:text-white/20 hidden sm:block">|</span>
+          {/* <span className="text-gray-300 dark:text-white/20 hidden sm:block">|</span>
           <a
             href="/help"
             className="text-[13px] sm:text-sm text-gray-500 dark:text-white/50 hover:text-gray-900 dark:hover:text-white transition-colors"
           >
             Soporte al Cliente
-          </a>
+          </a> */}
         </div>
 
         {/* Right: TM logo — light/dark variants */}

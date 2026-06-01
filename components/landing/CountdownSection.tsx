@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 interface Props {
   ventaInicio?: string;
   colorSecundario?: string;
+  tituloCountdown?: string;
 }
 
 interface TimeLeft {
@@ -25,7 +26,7 @@ function getTimeLeft(target: Date): TimeLeft | null {
   };
 }
 
-export function CountdownSection({ ventaInicio, colorSecundario }: Props) {
+export function CountdownSection({ ventaInicio, colorSecundario, tituloCountdown }: Props) {
   const target = ventaInicio ? new Date(ventaInicio) : null;
   const [mounted, setMounted] = useState(false);
   const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
@@ -63,7 +64,7 @@ export function CountdownSection({ ventaInicio, colorSecundario }: Props) {
           style={colorSecundario ? { color: colorSecundario } : undefined}
           className={`text-xl sm:text-[22px] font-bold tracking-wide${!colorSecundario ? " text-gray-700 dark:text-white/80" : ""}`}
         >
-          El evento iniciará la venta en
+          {tituloCountdown?.trim() || "La venta inicia en..."}
         </p>
         <div className="flex items-start gap-2 sm:gap-4">
           {units.map(({ value, label }, i) => (

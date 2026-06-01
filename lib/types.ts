@@ -64,6 +64,8 @@ export interface EventoConfig {
   notas?: string[];
   tema?: "dark" | "light";
   tituloFunciones?: string;
+  tituloCountdown?: string;
+  tituloProductoras?: string;
   funciones: Funcion[];
   galeria?: GaleriaItem[];
   productoras?: Productora[];
