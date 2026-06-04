@@ -19,7 +19,7 @@ export function TerminosSection() {
           5. En caso de cancelación del espectáculo, será responsabilidad de la empresa productora la correspondiente devolución del monto pagado por las entradas, dicho monto no incluirá las comisiones cobradas por TICKETMUNDO.
         </p>
         <p>
-          6. En caso de compras con tarjetas internacionales, deberá enviar a través del correo de{" "}
+          {/* 6. En caso de compras con tarjetas internacionales, deberá enviar a través del correo de{" "}
           <a
             href="mailto:verificacion.compras@ticketmundo.com"
             className="text-brand hover:underline"
@@ -34,15 +34,15 @@ export function TerminosSection() {
             className="text-brand hover:underline break-all"
           >
             https://cdn.ticketmundo.live/documentos/Ticketmundo-Carta-Aceptacion-Cargo-Tarjeta-De-Credito-Forma-PV001.pdf
-          </a>
-          . En caso de consultas comunicarse a través del WhatsApp AT{" "}
+          </a> */}
+          6. En caso de consultas comunicarse a través del WhatsApp AT{" "}
           <a
-            href="https://wa.me/+584124286237"
+            href="https://wa.me/+58 412-3922409"
             target="_blank"
             rel="noreferrer"
             className="text-brand hover:underline"
           >
-            +58 (412) 428-62-37
+            +58 (412) 392-24-09
           </a>
         </p>
         <p>
